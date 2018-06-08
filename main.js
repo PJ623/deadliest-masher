@@ -19,6 +19,10 @@ function turn(fighter) {
 function animate() {
     render(stage.toString());
 
+    //let lifeDiv = document.getElementById("life-totals");
+    let life1 = document.getElementById("life1");
+    let life2 = document.getElementById("life2");
+
     let simulation = setInterval(() => {
         turn(fighter1);
         turn(fighter2);
@@ -31,6 +35,9 @@ function animate() {
         // Damage calculation and cleanup
         console.log(fighter1.action.name, "|", fighter2.action.name);
         console.log(fighter1.life, "|", fighter2.life);
+
+        life1.innerHTML = fighter1.life;
+        life2.innerHTML = fighter2.life;
 
         if(fighter1.life <= 0 || fighter2.life <= 0){
             clearInterval(simulation);
